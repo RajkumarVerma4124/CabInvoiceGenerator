@@ -27,7 +27,7 @@ namespace CabInvoiceGeneratorProgram
             if (!(obj is UserCabInvoiceService))
                 return false;
             UserCabInvoiceService userCabService = (UserCabInvoiceService)obj;
-            return this.Rides == userCabService.Rides && this.InvoiceSummary.totalFare == userCabService.InvoiceSummary.totalFare;
+            return this.Rides.Count == userCabService.Rides.Count && this.InvoiceSummary.totalFare == userCabService.InvoiceSummary.totalFare && this.InvoiceSummary.average == userCabService.InvoiceSummary.average;
         }
     }
 }

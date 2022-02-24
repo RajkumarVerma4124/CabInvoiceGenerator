@@ -86,10 +86,11 @@ namespace CabInvoiceGeneratorTest
             List<Ride> list = new List<Ride>();
             list.AddRange(userOne);
             InvoiceSummary userInvoice = new InvoiceSummary(cabsRideCount, totalFare);
+
             //Using Assert to compare actual and expected value 
-            var expectedUserCabInvoice = new UserCabInvoiceService(list, userInvoice);
-            var actualUserCabInvoice = rideRepository.ReturnInvoicefromRideRepository(userId);     
-            Assert.AreEqual(actualUserCabInvoice.InvoiceSummary.totalFare, expectedUserCabInvoice.InvoiceSummary.totalFare);
+            UserCabInvoiceService expectedUserCabInvoice = new UserCabInvoiceService(list, userInvoice);
+            UserCabInvoiceService actualUserCabInvoice = rideRepository.ReturnInvoicefromRideRepository(userId); 
+            Assert.AreEqual(actualUserCabInvoice, expectedUserCabInvoice);
         }
     }
 }
